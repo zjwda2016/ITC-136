@@ -2,7 +2,7 @@
 
 git_init(){	
 	git init
-	git remote add origin https://github.com/zjwda2016/ITC-136.git
+	git remote add origin https://github.com/zjwda2016/test.git
 	git pull origin master
 }
 
