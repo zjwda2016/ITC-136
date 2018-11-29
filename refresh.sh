@@ -125,7 +125,7 @@ main(){
         		echo "Local repo is Up To Date."
         	else
         	
-        		echo "Local repo is  Out of Date"
+        		echo "Local repo is Out of Date"
         		do_fetch_pull_options
         	fi
 	else
