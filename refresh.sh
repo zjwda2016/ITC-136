@@ -118,19 +118,19 @@ main(){
 		echo -n "There is a git repository: "
 		show_repository
 
-        git_remote_status_results=$(git remote show origin)
+        	git_remote_status_results=$(git remote show origin)
         
-        if [[ $git_remote_status_results =~ 'up to date' ]]; then
+        	if [[ $git_remote_status_results =~ 'up to date' ]]; then
         	
-        	echo "Local repo is Up To Date."
-        else
+        		echo "Local repo is Up To Date."
+        	else
         	
-        	echo "Local repo is  Out of Date"
-        	do_fetch_pull_options
-        fi
+        		echo "Local repo is  Out of Date"
+        		do_fetch_pull_options
+        	fi
 	else
-        echo "There don't have a git repository, You need to create a git repository first, we will do it for you."
-        git_init
+        	echo "There don't have a git repository, You need to create a git repository first, we will do it for you."
+        	git_init
 	fi
 }
 
