@@ -1,8 +1,9 @@
 #!/bin/bash
 
 git_init(){	
+	read -p "Enter the link of repository: "  remote_link
 	git init
-	git remote add origin https://github.com/zjwda2016/test.git
+	git remote add origin "$remote_link"
 	git pull origin master
 }
 
@@ -22,7 +23,7 @@ git_rebase(){
 	git rebase -p origin/master
 }
 
-do_merege(){
+do_merge(){
 	while true; 
 	do
     	read -p "Do your want to merge the repository(yes or no):" yn
@@ -52,14 +53,14 @@ do_rebase(){
 	done
 }
 
-merege_rebase_options(){
+merge_rebase_options(){
 	while true; 
 	do
-    	read -p "Enter number 1 to git merege, or number 2 to git rebase: " nu
+    	read -p "Enter number 1 to git merge, or number 2 to git rebase: " nu
     	case $nu in
         	"1" )
-				echo "you chose number 1 that is merege"
-            	do_merege
+				echo "you chose number 1 that is merge"
+            	do_merge
 				break;;
         	"2" )
 				echo "you chose number 2 that is rebase"
@@ -82,7 +83,7 @@ fetch_pull_options(){
         	"2" )
 				echo "you chose number 2 that is fetch"
             	git_fetch
-            	merege_rebase_options
+            	merge_rebase_options
 				break;;
         	* ) echo "Please enter number 1 or 2.";;
     	esac
@@ -110,20 +111,20 @@ main(){
 
 	if [[ $git_status_results =~ 'On branch master' ]]; then
 
-		echo "There have a git repository"
+		echo "There is a git repository"
 
         git_remote_status_results=$(git remote show origin)
         
         if [[ $git_remote_status_results =~ 'up to date' ]]; then
         	
-        	echo "Up To Date."
+        	echo "Local repo is Up To Date."
         else
         	
-        	echo "Local Out of Date"
+        	echo "Local repo is  Out of Date"
         	do_fetch_pull_options
         fi
 	else
-        echo "There don't have a git repository"
+        echo "There don't have a git repository, You need to create a git repository first, we will do it for you."
         git_init
 	fi
 }
