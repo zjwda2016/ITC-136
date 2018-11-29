@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Refresh
+Comment=ITC 136
+Exec=/usr/bin/gnome-terminal -e "bash -c '/usr/local/bin/refresh; bash'"
+Icon=/home/derrick/Desktop/Sample-Icon.png
+Terminal=false
+Type=Application
+Categories=Utility;Application;
